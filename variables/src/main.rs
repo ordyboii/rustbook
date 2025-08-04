@@ -1,5 +1,7 @@
 fn main() {
-    println!("Variables practise");
+    println!("Variables practise\n");
+
+    println!("------Farenheiht to Celsius conversion------\n");
 
     let example = 10.0;
     let converted = farenheiht_to_celsius(example);
@@ -8,13 +10,18 @@ fn main() {
         example, converted
     );
 
+    println!("------Fibonacci sequence------\n");
+
     let fibonacci = fibonacci_sequence(20, true);
     match fibonacci {
         FibonacciSequence::CommaSeparated(seq) => println!("{seq}"),
         FibonacciSequence::U32Vec(seq) => println!("{:?}", seq),
     }
 
-    twelve_days_of_christmas();
+    println!("------Twelve days of Christmas------\n");
+
+    let lyrics = twelve_days_of_christmas();
+    println!("{lyrics}");
 }
 
 fn farenheiht_to_celsius(farenheiht: f32) -> f32 {
@@ -52,7 +59,74 @@ fn fibonacci_sequence(length: u32, format: bool) -> FibonacciSequence {
     return FibonacciSequence::U32Vec(sequence);
 }
 
-fn twelve_days_of_christmas() {}
+enum Gift {
+    Partridge,
+    TurtleDoves,
+    FrenchHens,
+    CallingBirds,
+    GoldenRings,
+    GeeseALaying,
+    SwansASwimming,
+    MaidsAMilking,
+    LadiesDancing,
+    LordsALeaping,
+    PipersPiping,
+    DrummersDrumming,
+}
+
+fn twelve_days_of_christmas() -> String {
+    let mut paras: Vec<String> = vec![];
+
+    for line in 0..12 {
+        let mut lines: Vec<String> = vec![];
+
+        let day = match line {
+            1 => "first",
+            2 => "second",
+            3 => "third",
+            4 => "fourth",
+            5 => "fifth",
+            6 => "sixth",
+            7 => "seventh",
+            8 => "eighth",
+            9 => "ninth",
+            10 => "tenth",
+            11 => "eleventh",
+            _ => "twelfth",
+        };
+
+        lines.push(format!(
+            "On the {day} day of Christmas, my true love sent to me"
+        ));
+
+        for gift in (0..=line).rev() {
+            let gift = match gift {
+                Gift::Partridge => "a partridge in a pear tree.",
+                1 => "Two turtle doves,",
+                2 => "Three French hens,",
+                3 => "Four calling birds,",
+                4 => "Five golden rings,",
+                5 => "Six geese a-laying,",
+                6 => "Seven swans a-swimming,",
+                7 => "Eight maids a-milking,",
+                8 => "Nine ladies dancing,",
+                9 => "Ten lords a-leaping,",
+                10 => "Eleven pipers piping,",
+                _ => "Twelve drummers drumming,",
+            };
+
+            if i == 0 && line != 0 {
+                lines.push(format!("And {gift}"));
+            } else {
+                lines.push(gift.to_string());
+            }
+        }
+
+        paras.push(lines.join("\n"));
+    }
+
+    return paras.join("\n\n");
+}
 
 // On the first day of Christmas
 // my true love sent to me
