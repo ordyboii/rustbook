@@ -59,21 +59,6 @@ fn fibonacci_sequence(length: u32, format: bool) -> FibonacciSequence {
     return FibonacciSequence::U32Vec(sequence);
 }
 
-enum Gift {
-    Partridge,
-    TurtleDoves,
-    FrenchHens,
-    CallingBirds,
-    GoldenRings,
-    GeeseALaying,
-    SwansASwimming,
-    MaidsAMilking,
-    LadiesDancing,
-    LordsALeaping,
-    PipersPiping,
-    DrummersDrumming,
-}
-
 fn twelve_days_of_christmas() -> String {
     let mut paras: Vec<String> = vec![];
 
@@ -81,17 +66,17 @@ fn twelve_days_of_christmas() -> String {
         let mut lines: Vec<String> = vec![];
 
         let day = match line {
-            1 => "first",
-            2 => "second",
-            3 => "third",
-            4 => "fourth",
-            5 => "fifth",
-            6 => "sixth",
-            7 => "seventh",
-            8 => "eighth",
-            9 => "ninth",
-            10 => "tenth",
-            11 => "eleventh",
+            0 => "first",
+            1 => "second",
+            2 => "third",
+            3 => "fourth",
+            4 => "fifth",
+            5 => "sixth",
+            6 => "seventh",
+            7 => "eighth",
+            8 => "ninth",
+            9 => "tenth",
+            10 => "eleventh",
             _ => "twelfth",
         };
 
@@ -101,7 +86,7 @@ fn twelve_days_of_christmas() -> String {
 
         for gift in (0..=line).rev() {
             let gift = match gift {
-                Gift::Partridge => "a partridge in a pear tree.",
+                0 => "a partridge in a pear tree.",
                 1 => "Two turtle doves,",
                 2 => "Three French hens,",
                 3 => "Four calling birds,",
@@ -115,7 +100,7 @@ fn twelve_days_of_christmas() -> String {
                 _ => "Twelve drummers drumming,",
             };
 
-            if i == 0 && line != 0 {
+            if line != 0 {
                 lines.push(format!("And {gift}"));
             } else {
                 lines.push(gift.to_string());
@@ -127,117 +112,3 @@ fn twelve_days_of_christmas() -> String {
 
     return paras.join("\n\n");
 }
-
-// On the first day of Christmas
-// my true love sent to me
-// a partridge in a pear tree.
-//
-// On the second day of Christmas,
-// my true love sent to me
-// Two turtle doves,
-// and a partridge in a pear tree.
-//
-// On the third day of Christmas,
-// my true love sent to me
-// Three French hens,
-// Two turtle doves,
-// And a partridge in a pear tree.
-//
-// On the fourth day of Christmas,
-// my true love sent to me
-// Four calling birds,
-// Three French hens,
-// Two turtle doves,
-// And a partridge in a pear tree.
-//
-// On the fifth day of Christmas,
-// my true love sent to me
-// Five golden rings,
-// Four calling birds,
-// Three French hens,
-// Two turtle doves,
-// And a partridge in a pear tree.
-//
-// On the sixth day of Christmas,
-// my true love sent to me
-// Six geese a-laying,
-// Five golden rings,
-// Four calling birds,
-// Three French hens,
-// Two turtle doves,
-// And a partridge in a pear tree.
-//
-// On the seventh day of Christmas,
-// my true love sent to me
-// Seven swans a-swimming,
-// Six geese a-laying,
-// Five golden rings,
-// Four calling birds,
-// Three French hens,
-// Two turtle doves,
-// And a partridge in a pear tree.
-//
-// On the eighth day of Christmas,
-// my true love sent to me
-// Eight maids a-milking,
-// Seven swans a-swimming,
-// Six geese a-laying,
-// Five golden rings,
-// Four calling birds,
-// Three French hens,
-// Two turtle doves,
-// And a partridge in a pear tree.
-//
-// On the ninth day of Christmas,
-// my true love sent to me
-// Nine ladies dancing,
-// Eight maids a-milking,
-// Seven swans a-swimming,
-// Six geese a-laying,
-// Five golden rings,
-// Four calling birds,
-// Three French hens,
-// Two turtle doves,
-// And a partridge in a pear tree.
-//
-// On the tenth day of Christmas,
-// my true love sent to me
-// Ten lords a-leaping,
-// Nine ladies dancing,
-// Eight maids a-milking,
-// Seven swans a-swimming,
-// Six geese a-laying,
-// Five golden rings,
-// Four calling birds,
-// Three French hens,
-// Two turtle doves,
-// And a partridge in a pear tree.
-//
-// On the eleventh day of Christmas,
-// my true love sent to me
-// Eleven pipers piping,
-// Ten lords a-leaping,
-// Nine ladies dancing,
-// Eight maids a-milking,
-// Seven swans a-swimming,
-// Six geese a-laying,
-// Five golden rings,
-// Four calling birds,
-// Three French hens,
-// Two turtle doves,
-// And a partridge in a pear tree.
-//
-// On the twelfth day of Christmas,
-// my true love sent to me
-// Twelve drummers drumming,
-// Eleven pipers piping,
-// Ten lords a-leaping,
-// Nine ladies dancing,
-// Eight maids a-milking,
-// Seven swans a-swimming,
-// Six geese a-laying,
-// Five golden rings,
-// Four calling birds,
-// Three French hens,
-// Two turtle doves,
-// And a partridge in a pear tree!
