@@ -1,27 +1,28 @@
 fn main() {
     println!("Variables practise\n");
 
-    println!("------Farenheiht to Celsius conversion------\n");
+    println!("Farenheiht to Celsius conversion");
 
     let example = 10.0;
     let converted = farenheiht_to_celsius(example);
+
     println!(
-        "{:.1} degrees farenheiht is {:.2} degrees celsius",
+        "{:.1} degrees farenheiht is {:.2} degrees celsius\n",
         example, converted
     );
 
-    println!("------Fibonacci sequence------\n");
+    println!("Fibonacci sequence");
 
     let fibonacci = fibonacci_sequence(20, true);
     match fibonacci {
-        FibonacciSequence::CommaSeparated(seq) => println!("{seq}"),
-        FibonacciSequence::U32Vec(seq) => println!("{:?}", seq),
+        FibonacciSequence::CommaSeparated(seq) => println!("{}\n", seq),
+        FibonacciSequence::U32Vec(seq) => println!("{:?}\n", seq),
     }
 
-    println!("------Twelve days of Christmas------\n");
+    println!("Twelve days of Christmas");
 
     let lyrics = twelve_days_of_christmas();
-    println!("{lyrics}");
+    println!("{}", lyrics);
 }
 
 fn farenheiht_to_celsius(farenheiht: f32) -> f32 {
@@ -34,7 +35,7 @@ enum FibonacciSequence {
 }
 
 fn fibonacci_sequence(length: u32, format: bool) -> FibonacciSequence {
-    let mut sequence: Vec<u32> = vec![0, 1];
+    let mut sequence: Vec<u32> = Vec::from([0, 1]);
     let mut start = sequence[0];
     let mut end = sequence[1];
 
@@ -60,10 +61,10 @@ fn fibonacci_sequence(length: u32, format: bool) -> FibonacciSequence {
 }
 
 fn twelve_days_of_christmas() -> String {
-    let mut paras: Vec<String> = vec![];
+    let mut paras: Vec<String> = Vec::new();
 
     for line in 0..12 {
-        let mut lines: Vec<String> = vec![];
+        let mut lines: Vec<String> = Vec::new();
 
         let day = match line {
             0 => "first",
@@ -81,7 +82,8 @@ fn twelve_days_of_christmas() -> String {
         };
 
         lines.push(format!(
-            "On the {day} day of Christmas, my true love sent to me"
+            "On the {} day of Christmas, my true love sent to me",
+            day
         ));
 
         for gift in (0..=line).rev() {
