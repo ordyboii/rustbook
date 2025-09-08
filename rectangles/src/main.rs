@@ -61,6 +61,12 @@ fn main() {
 
     println!("rect1 can hold rect2: {}", rect1.can_hold(&rect2));
     println!("Square {}", Rectangle::square(30));
+
+    let one = 2;
+    let two: Option<i32> = Some(2);
+    let two = two.unwrap_or(3);
+
+    println!("{}", one * two);
 }
 
 #[cfg(test)]
