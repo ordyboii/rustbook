@@ -1,15 +1,18 @@
 use std::io;
 
-pub fn median_tables(mut tables: Vec<u32>) -> Option<u32> {
+pub fn median_tables(mut tables: Vec<u32>) -> Result<u32, String> {
     if tables.is_empty() {
-        return None;
+        return Err("Empty vector".to_string());
     }
 
-    tables.sort_by(|a, b| b.cmp(a));
+    tables.sort();
+    let len = tables.len();
 
-    match tables.get(tables.len() / 2) {
-        Some(n) => Some(*n),
-        None => None,
+    if len % 2 == 1 {
+        Ok(tables[len / 2])
+    } else {
+        let mid = (tables[len / 2 - 1]) + (tables[len / 2]);
+        Ok(mid / 2)
     }
 }
 

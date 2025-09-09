@@ -2,8 +2,8 @@ mod company;
 mod utils;
 
 fn main() {
-    let tables = vec![1, 2, 3, 230];
-    let median = utils::median_tables(tables).expect("Provide a valid vector");
+    let tables = vec![1, 2, 40, 300];
+    let median = utils::median_tables(tables).unwrap();
 
     println!("{}", median);
 
