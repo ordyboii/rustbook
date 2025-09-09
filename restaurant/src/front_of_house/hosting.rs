@@ -9,6 +9,7 @@ pub fn add_guests(guestlist: String) -> Vec<String> {
         .collect::<Vec<String>>();
 }
 
+#[derive(Debug)]
 pub struct Guest {
     pub name: String,
     pub age: i32,

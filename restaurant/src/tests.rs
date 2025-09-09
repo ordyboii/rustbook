@@ -23,7 +23,10 @@ fn adding_guests() {
     ];
 
     for guest in new_guests {
-        println!("New guest's name {}", guest.name);
+        println!(
+            "New guest's name {}",
+            format!("{} hello you are {}", guest.name, guest.age)
+        );
     }
 
     assert_eq!(
@@ -34,4 +37,8 @@ fn adding_guests() {
             String::from("Jake")
         ]
     );
+
+    let greeting = "Здравствуйте";
+    let last_char = greeting.chars().last();
+    assert_eq!(last_char, Some('е'));
 }
