@@ -13,7 +13,7 @@ fn main() {
     println!("Welcome to {} Employee Management System!", company.name);
 
     loop {
-        println!("\nAvailable departments: {:?}", company.list_departments());
+        println!("Available departments: {:?}", company.list_departments());
 
         let department_name =
             utils::read_input("Which department do you want to add an employee to?");
