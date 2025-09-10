@@ -1,13 +1,15 @@
 mod company;
 mod utils;
 
+use crate::company::Company;
+
 fn main() {
     let tables = vec![1, 2, 40, 300];
     let median = utils::median_tables(tables).unwrap();
 
     println!("{}", median);
 
-    let mut company = company::Company::new("Burger King");
+    let mut company = Company::new("Burger King");
     company.add_department("office");
 
     println!("Welcome to {} Employee Management System!", company.name);

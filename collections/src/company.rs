@@ -29,7 +29,7 @@ impl Company {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct Department {
     employees: Vec<String>,
 }
