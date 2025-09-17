@@ -21,22 +21,23 @@ fn main() {
             utils::read_input("Which department do you want to add an employee to?");
 
         // Try to get existing department or create new one
-        let department = match company.get_department_mut(&department_name) {
-            Some(dept) => dept,
-            None => {
-                let create_new = utils::read_input(&format!(
-                    "Department '{}' not found. Create it? (y/n)",
-                    department_name
-                ));
-
-                match create_new.to_lowercase().as_str() {
-                    "y" | "yes" => company.add_department(&department_name),
-                    _ => {
-                        println!("Skipping...");
-                        continue;
-                    }
-                }
+        let department = loop {
+            if let Some(dept) = company.get_department_mut(&department_name) {
+                break dept;
             }
+
+            let new_department_name = utils::read_input(&format!(
+                "Department '{}' not found. Create it? (y/n)",
+                department_name
+            ));
+
+            match new_department_name.to_lowercase().as_str() {
+                "y" | "yes" => company.add_department(&department_name),
+                _ => {
+                    println!("Skipping...");
+                    continue;
+                }
+            };
         };
 
         let employee_name = utils::read_input("What is the name of the employee you want to add?");
@@ -46,6 +47,7 @@ fn main() {
             "✅ Added '{}' to '{}' department",
             employee_name, department_name
         );
+
         println!(
             "Department now has {} employees: {:?}",
             department.employee_count(),
